@@ -1,10 +1,4 @@
 export const videoPlayerInit = () =>{
-    // 
-    // video-button__play
-    // video-button__stop
-    // video-time__passed
-    // video-progres
-    // video-time__total
 
     const videoPlayer = document.querySelector('.video-player');
     const videoButtonPlay = document.querySelector('.video-button__play');
@@ -12,6 +6,7 @@ export const videoPlayerInit = () =>{
     const videoTimePassed = document.querySelector('.video-time__passed');
     const videoTimeTotal = document.querySelector('.video-time__total');
     const videoProgress = document.querySelector('.video-progress');
+    const videoVolume = document.querySelector('.video-volume');
 
     const toggleIcon = () =>{
         if(videoPlayer.paused){
@@ -67,5 +62,9 @@ export const videoPlayerInit = () =>{
         const value = videoProgress.value;
 
         videoPlayer.currentTime = (value * duration) / 100;
+    })
+
+    videoVolume.addEventListener('input', () =>{
+        videoPlayer.volume = videoVolume.value / 100;
     })
 };
